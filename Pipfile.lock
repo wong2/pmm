@@ -1,5 +1,9 @@
 {
     "default": {
+        "blindspin": {
+            "version": "==2.0.1",
+            "hash": "sha256:31c4e93d4ae2ef6765e3c42460456814c17addd5add8298dced21fe9dc50f496"
+        },
         "crayons": {
             "version": "==0.1.2",
             "hash": "sha256:6f51241d0c4faec1c04c1c0ac6a68f1d66a4655476ce1570b3f37e5166a599cc"
@@ -8,21 +12,13 @@
             "version": "==0.3.7",
             "hash": "sha256:a4c0f5bc358a62849653471e309dcc991223cf86abafbec17cd8f41327279e89"
         },
-        "requests-cache": {
-            "version": "==0.4.13",
-            "hash": "sha256:e9270030becc739b0a7f7f834234c73a878b2d794122bf76f40055a22419eb67"
+        "requests": {
+            "version": "==2.13.0",
+            "hash": "sha256:1a720e8862a41aa22e339373b526f508ef0c8988baf48b84d3fc891a8e237efb"
         },
         "pick": {
             "version": "==0.6.1",
             "hash": "sha256:9e45d91b81f479625a9a4a9d1b7e2a042a389fb5c1eee5b378e07f5cface17f9"
-        },
-        "blindspin": {
-            "version": "==2.0.1",
-            "hash": "sha256:31c4e93d4ae2ef6765e3c42460456814c17addd5add8298dced21fe9dc50f496"
-        },
-        "requests": {
-            "version": "==2.13.0",
-            "hash": "sha256:1a720e8862a41aa22e339373b526f508ef0c8988baf48b84d3fc891a8e237efb"
         }
     },
     "develop": {},
@@ -35,7 +31,7 @@
         ],
         "requires": {},
         "hash": {
-            "sha256": "82cc30821af132eff85ed7ffe824e48a5a7138d265cb65b7b43d2bb8544d228b"
+            "sha256": "3c38bd02a7c0a1b5b3be030d0254df1e93f4f4d72b69597b1d2d383900d7d761"
         }
     }
 }

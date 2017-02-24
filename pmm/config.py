@@ -1,23 +1,26 @@
 #-*-coding:utf-8-*-
 
 import os
-from ConfigParser import SafeConfigParser
-from pip.locations import legacy_config_file, config_basename
-from pip.utils import appdirs
+try:
+    from configparser import ConfigParser
+except ImportError:
+    from ConfigParser import ConfigParser
+
+from pip.locations import legacy_config_file
 from pmm.utils import ensure_file
 
 
 def get_pip_config_file_path():
-    if os.path.exists(legacy_config_file):
-        return legacy_config_file
-    return os.path.join(appdirs('pip'), config_basename)
+    '''TODO: use new config file path
+    '''
+    return legacy_config_file
 
 
 class PipConfig(object):
 
     def __init__(self):
         self.path = get_pip_config_file_path()
-        self.config_parser = SafeConfigParser()
+        self.config_parser = ConfigParser()
         if os.path.exists(self.path):
             self.config_parser.read(self.path)
 

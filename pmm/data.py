@@ -1,11 +1,7 @@
 #-*-coding:utf-8-*-
 
 import requests
-import requests_cache
 from collections import OrderedDict
-
-# cache api result for 10min
-requests_cache.install_cache(expire_after=600)
 
 STATUS_LABELS = OrderedDict([
     ('green', 'fresh'),
@@ -16,14 +12,14 @@ STATUS_LABELS = OrderedDict([
 
 def fetch_mirrors_data():
     api_url = 'https://www.pypi-mirrors.org/data.json'
-    r = requests.get(api_url, verify=False)
+    r = requests.get(api_url)
     return r.json()
 
 
 def get_mirrors_data():
     mirrors = []
     mirrors_data = fetch_mirrors_data()
-    for mirror, data in mirrors_data.iteritems():
+    for mirror, data in mirrors_data.items():
         mirrors.append((mirror, data['status'].lower()))
-    mirrors.sort(key=lambda (mirror, status): list(STATUS_LABELS).index(status))
+    mirrors.sort(key=lambda x: list(STATUS_LABELS).index(x[1]))
     return [mirror for mirror, status in mirrors]

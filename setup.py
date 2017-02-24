@@ -4,18 +4,17 @@ import os
 import sys
 from setuptools import setup
 
+
 def fread(fname):
     filepath = os.path.join(os.path.dirname(__file__), fname)
     with open(filepath, 'r') as fp:
         return fp.read()
-
 
 required = [
     'pip',
     'crayons',
     'blindspin',
     'requests',
-    'requests-cache',
     'pick',
 ]
 
@@ -24,7 +23,7 @@ if sys.version_info < (2, 7):
 
 setup(
     name='pmm',
-    version='0.1.0',
+    version='0.4.0',
     description='PyPi Mirror Manager',
     long_description=fread('README.md'),
     keywords='pypi,mirror',
