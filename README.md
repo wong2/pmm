@@ -8,7 +8,7 @@
 pip install pmm
 ```
 
-#### Credit
+#### Credits
 
 * inspired by https://github.com/Pana/nrm
 * mirrors data from https://www.pypi-mirrors.org/
