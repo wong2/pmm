@@ -31,7 +31,7 @@ def main():
     choosed_index_url = format_index_url(choosed_mirror)
     config.set_index_url(choosed_index_url)
 
-    print(u'✨  using mirror {} now'.format(crayons.cyan(choosed_index_url)))
+    print('Changed to {}'.format(crayons.cyan(choosed_index_url)))
 
 
 if __name__ == '__main__':
