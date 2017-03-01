@@ -12,7 +12,7 @@ STATUS_LABELS = OrderedDict([
 
 def fetch_mirrors_data():
     api_url = 'https://www.pypi-mirrors.org/data.json'
-    r = requests.get(api_url)
+    r = requests.get(api_url, verify=False)
     return r.json()
 
 
