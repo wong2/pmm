@@ -23,7 +23,7 @@ if sys.version_info < (2, 7):
 
 setup(
     name='pmm',
-    version='0.4.1',
+    version='0.4.2',
     description='PyPi Mirror Manager',
     long_description=fread('README.md'),
     keywords='pypi,mirror',
