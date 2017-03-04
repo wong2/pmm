@@ -1,33 +1,31 @@
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 
 import os
-try:
-    from configparser import ConfigParser
-except ImportError:
-    from ConfigParser import ConfigParser
+import shlex
+from configparser import ConfigParser
+from distutils.util import strtobool
 
 from pip.locations import legacy_config_file
 from pmm.utils import ensure_file
 
 
-def get_pip_config_file_path():
-    '''TODO: use new config file path
-    '''
-    return legacy_config_file
-
-
-class PipConfig(object):
+class ConfigFile(object):
+    # TODO: use new config file path.
+    path = legacy_config_file
 
     def __init__(self):
-        self.path = get_pip_config_file_path()
         self.config_parser = ConfigParser()
         if os.path.exists(self.path):
             self.config_parser.read(self.path)
 
-    def get(self, section, name):
-        if not self.config_parser.has_section(section):
-            return
-        return self.config_parser.get(section, name)
+    def get(self, section, name, default=None):
+        return self.config_parser.get(section, name, fallback=default)
+
+    def getbool(self, section, name, default=None):
+        try:
+            return strtobool(self.get(section, name, 'false'))
+        except ValueError:
+            return False
 
     def set(self, section, name, value):
         if not self.config_parser.has_section(section):
@@ -39,13 +37,35 @@ class PipConfig(object):
         with open(self.path, 'w') as fp:
             self.config_parser.write(fp)
 
+    def getlist(self, section, option, default=None):
+        if not self.config_parser.has_option(section, option):
+            return [] if default is None else default
 
-pip_config = PipConfig()
+        value = self.get(section, option)
+        if '\n' in value:
+            return [item.strip()
+                    for item in value.splitlines() if item.strip()]
+        else:
+            return shlex.split(value)
 
 
-def get_index_url():
-    return pip_config.get('global', 'index-url')
+class PipConfig(ConfigFile):
+    # TODO: use new config file path.
+    path = legacy_config_file
 
+    def get_index_url(self):
+        return self.get('global', 'index-url')
 
-def set_index_url(index_url):
-    return pip_config.set('global', 'index-url', index_url)
+    def set_index_url(self, index_url):
+        return self.set('global', 'index-url', index_url)
+
+    def get_index_servers(self):
+        servers = []
+        for sect in self.getlist('global', 'index-servers'):
+            url = self.get(sect, 'index')
+            if url:
+                servers.append({
+                    'index': url,
+                    'location': self.get(sect, 'location', 'n/a')
+                })
+        return servers
