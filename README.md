@@ -39,7 +39,7 @@ You can add package indexes to your `pip.conf` file. Example:
     location = Example Inc., California US
 
 If you have any indexes listed in the `index-servers` setting in the `globals`
-section, `pmm` will the only offer these indexes for selection, unless you use
+section, `pmm` will then only offer these indexes for selection, unless you use
 the `-m` command line option.
 
 #### Credits
@@ -47,6 +47,3 @@ the `-m` command line option.
 * inspired by https://github.com/Pana/nrm
 * mirrors data from https://www.pypi-mirrors.org/
 * [pick](https://github.com/wong2/pick) for the interactive selection list
-
-[dictutils]: https://docs.python.org/3/distutils/packageindex.html#the-pypirc-file
-[twine]: https://pypi.python.org/pypi/twine
