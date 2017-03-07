@@ -44,10 +44,10 @@ def main(args=None):
         urls[f_url] = server
 
     if not urls and not args.mirrors:
-        print(crayons.red("No indexes found in %s." % pip_config.path))
+        print(crayons.yellow("No indexes found in %s" % pip_config.path))
 
     if args.mirrors or not urls:
-        print(crayons.yellow("Downloading mirror list"), end=' ')
+        print(crayons.magenta("Downloading mirror list"), end=' ')
         with blindspin.spinner():
             for mirror in get_mirrors_data():
                 f_url = format_index_url(mirror['index'])
