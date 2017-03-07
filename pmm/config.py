@@ -10,9 +10,6 @@ from pmm.utils import ensure_file
 
 
 class ConfigFile(object):
-    # TODO: use new config file path.
-    path = legacy_config_file
-
     def __init__(self):
         self.config_parser = ConfigParser()
         if os.path.exists(self.path):
@@ -66,6 +63,6 @@ class PipConfig(ConfigFile):
             if url:
                 servers.append({
                     'index': url,
-                    'location': self.get(sect, 'location', 'n/a')
+                    'info': self.get(sect, 'info', 'n/a')
                 })
         return servers

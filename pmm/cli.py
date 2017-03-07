@@ -44,7 +44,7 @@ def main(args=None):
         urls[f_url] = server
 
     if not urls and not args.mirrors:
-        print(crayons.yellow("No indexes found in %s" % pip_config.path))
+        print(crayons.yellow("No indexes found in {0}".format(pip_config.path)))
 
     if args.mirrors or not urls:
         print(crayons.magenta("Downloading mirror list"), end=' ')
@@ -59,7 +59,7 @@ def main(args=None):
     for i, url in enumerate(urls):
         if current_index_url and url == current_index_url:
             current_index = i
-        choices.append("%(index)s (%(location)s)" % urls[url])
+        choices.append("{index} ({info})".format(**urls[url]))
 
     try:
         _, index = pick(choices, indicator='=>', default_index=current_index)

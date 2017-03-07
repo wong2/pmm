@@ -36,7 +36,7 @@ You can add package indexes to your `pip.conf` file. Example:
 
     [my-devpi]
     index = devpi.example.com/main/dev
-    location = Example Inc., California US
+    info = Development team local package index
 
 If you have any indexes listed in the `index-servers` setting in the `globals`
 section, `pmm` will then only offer these indexes for selection, unless you use

@@ -25,6 +25,7 @@ def get_mirrors_data():
     for mirror, data in mirrors_data.items():
         data['index'] = mirror
         data['status'] = data.get('status', 'unavailable').lower()
+        data['info'] = "{location}, status: {status}".format(**data)
         mirrors.append(data)
     mirrors.sort(key=lambda x: STATUS_LABELS.get(x['status'], 0), reverse=True)
     return mirrors
