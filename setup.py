@@ -21,7 +21,7 @@ required = [
 
 if sys.version_info < (2, 7):
     required.append('ordereddict')
-if sys.version_info < (3,):
+if sys.version_info < (3, 2):
     required.append('configparser')
 
 
