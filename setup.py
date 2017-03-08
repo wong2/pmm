@@ -1,4 +1,4 @@
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 
 import os
 import sys
@@ -10,6 +10,7 @@ def fread(fname):
     with open(filepath, 'r') as fp:
         return fp.read()
 
+
 required = [
     'pip',
     'crayons',
@@ -20,11 +21,14 @@ required = [
 
 if sys.version_info < (2, 7):
     required.append('ordereddict')
+if sys.version_info < (3, 2):
+    required.append('configparser')
+
 
 setup(
     name='pmm',
     version='0.4.3',
-    description='PyPi Mirror Manager',
+    description='PyPI Mirror and Index Server Manager',
     long_description=fread('README.md'),
     keywords='pypi,mirror',
     url='https://github.com/wong2/pmm',
