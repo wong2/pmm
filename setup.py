@@ -27,7 +27,7 @@ if sys.version_info < (3, 2):
 
 setup(
     name='pmm',
-    version='0.4.3',
+    version='0.5.0',
     description='PyPI Mirror and Index Server Manager',
     long_description=fread('README.md'),
     keywords='pypi,mirror',
