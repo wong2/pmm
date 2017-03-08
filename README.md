@@ -42,6 +42,11 @@ If you have any indexes listed in the `index-servers` setting in the `globals`
 section, `pmm` will then only offer these indexes for selection, unless you use
 the `-m` command line option.
 
+#### Authors
+
+* [wong2](https://github.com/wong2)
+* [SpotlightKid](https://github.com/SpotlightKid)
+
 #### Credits
 
 * inspired by https://github.com/Pana/nrm
