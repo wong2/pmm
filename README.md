@@ -1,6 +1,6 @@
 ### PyPi Mirror Manager [![PyPI](https://img.shields.io/pypi/v/pmm.svg)](https://pypi.python.org/pypi/pmm)
 
-[![command line demo](https://asciinema.org/a/3e67r6npdb4i7syuqdmxkctgm.png)](https://asciinema.org/a/3e67r6npdb4i7syuqdmxkctgm)
+![command line demo](demo.gif)
 
 #### Installation
 
